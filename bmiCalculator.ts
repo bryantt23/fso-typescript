@@ -1,4 +1,9 @@
 export const calculateBmi = (height: number, weight: number): string => {
+    // Validate input parameters
+    if (height <= 0 || weight <= 0) {
+        throw new Error("Height and weight must be positive numbers.");
+    }
+
     const heightInMeters = height / 100; // assuming height is in cm, converting to meters
     const bmi = weight / (heightInMeters * heightInMeters);
 
