@@ -26,8 +26,4 @@ export const calculateBmi = (height: number, weight: number): string => {
     } else {
         return "Invalid BMI";
     }
-}
-
-// const a: number = Number(process.argv[2])
-// const b: number = Number(process.argv[3])
-// console.log(calculateBmi(a, b)); // height in cm, weight in kg
+};

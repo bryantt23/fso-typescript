@@ -1,29 +1,30 @@
-const express = require('express');
-const app = express();
+import express, { Request, Response } from 'express';
 import { calculateBmi } from "./bmiCalculator";
 
-app.get('/hello', (_req: any, res: { send: (arg0: string) => void; }) => {
+const app = express();
+const PORT = 3003;
+
+app.get('/hello', (_req: Request, res: Response) => {
     res.send('Hello Full Stack!');
 });
 
-app.get('/bmi', (req: any, res: any) => {
+app.get('/bmi', (req: Request, res: Response) => {
     // Attempt to convert query parameters to numbers
     const height = Number(req.query.height);
     const weight = Number(req.query.weight);
 
     // Validate the converted numbers
     if (isNaN(height) || height <= 0 || isNaN(weight) || weight <= 0) {
-        return res.status(400).send({ error: "Both height and weight must be valid, positive numbers." });
+        return res.status(400).json({ error: "Both height and weight must be valid, positive numbers." });
     }
     try {
-        const bmi = calculateBmi(height, weight)
+        const bmi = calculateBmi(height, weight);
         res.json({ height, weight, bmi });
     } catch (error) {
-        res.status(500).send({ error: error.message });
+        const typedError = error as Error;
+        res.status(500).json({ error: typedError.message });
     }
 });
-
-const PORT = 3003;
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
