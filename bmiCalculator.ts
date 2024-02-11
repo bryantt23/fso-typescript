@@ -1,4 +1,4 @@
-function calculateBmi(height: number, weight: number): string {
+export const calculateBmi = (height: number, weight: number): string => {
     const heightInMeters = height / 100; // assuming height is in cm, converting to meters
     const bmi = weight / (heightInMeters * heightInMeters);
 
@@ -23,6 +23,6 @@ function calculateBmi(height: number, weight: number): string {
     }
 }
 
-const a: number = Number(process.argv[2])
-const b: number = Number(process.argv[3])
-console.log(calculateBmi(a, b)); // height in cm, weight in kg
+// const a: number = Number(process.argv[2])
+// const b: number = Number(process.argv[3])
+// console.log(calculateBmi(a, b)); // height in cm, weight in kg
