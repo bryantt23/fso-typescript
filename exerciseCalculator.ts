@@ -8,7 +8,7 @@ interface Result {
     average: number
 }
 
-function calculateExercises(days: number[], target: number): Result {
+function calculateExercises(target: number, days: number[]): Result {
     const length = days.length
     const average = days.reduce((prev, cur) => prev + cur, 0) / length
     const score = average / target
@@ -54,4 +54,6 @@ If you call the function with parameters[3, 0, 2, 4.5, 0, 3, 1] and 2, it should
 } 
 */
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2))
+const target: number = Number(process.argv[2])
+const exerciseHours: number[] = process.argv.slice(3).map(Number)
+console.log(calculateExercises(target, exerciseHours))

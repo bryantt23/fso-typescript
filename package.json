@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/bryantt23/fso-typescript/issues"
   },
-  "homepage": "https://github.com/bryantt23/fso-typescript#readme"
+  "homepage": "https://github.com/bryantt23/fso-typescript#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.17"
+  }
 }

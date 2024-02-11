@@ -23,4 +23,6 @@ function calculateBmi(height: number, weight: number): string {
     }
 }
 
-console.log(calculateBmi(180, 74)); // height in cm, weight in kg
+const a: number = Number(process.argv[2])
+const b: number = Number(process.argv[3])
+console.log(calculateBmi(a, b)); // height in cm, weight in kg
