@@ -8,7 +8,7 @@ interface Result {
     average: number;
 }
 
-function calculateExercises(target: number, days: number[]): Result {
+export function calculateExercises(target: number, days: number[]): Result {
     const length = days.length;
     const average = days.reduce((prev, cur) => prev + cur, 0) / length;
     const score = average / target;
@@ -25,6 +25,6 @@ function calculateExercises(target: number, days: number[]): Result {
     };
 }
 
-const target: number = Number(process.argv[2]);
-const exerciseHours: number[] = process.argv.slice(3).map(Number);
-console.log(calculateExercises(target, exerciseHours));
+// const target: number = Number(process.argv[2]);
+// const exerciseHours: number[] = process.argv.slice(3).map(Number);
+// console.log(calculateExercises(target, exerciseHours));
